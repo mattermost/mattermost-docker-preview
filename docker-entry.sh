@@ -7,6 +7,11 @@ echo starting mysql
 
 sleep 20
 
+until mysqladmin -hlocalhost -P3306 -u"$MYSQL_USER" -p"$MYSQL_PASSWORD" processlist &> /dev/null; do
+    echo "MySQL still not ready, sleeping"
+    sleep 5
+done
+
 echo starting platform
 cd mattermost
 ./bin/platform -config=config/config_docker.json
