@@ -17,9 +17,7 @@ ENV MYSQL_DATABASE=mattermost_test
 WORKDIR /mm
 
 # Copy over files
-ADD https://releases.mattermost.com/3.3.0/mattermost-team-3.3.0-linux-amd64.tar.gz .
-RUN tar -zxvf ./mattermost-team-3.3.0-linux-amd64.tar.gz
-RUN rm ./mattermost-team-3.3.0-linux-amd64.tar.gz
+RUN apt-get update && apt-get install -y curl && curl -l https://releases.mattermost.com/3.3.0/mattermost-team-3.3.0-linux-amd64.tar.gz | tar -zxvf - && apt-get purge --auto-remove -y curl && apt-get clean
 ADD config_docker.json ./mattermost/config/config_docker.json
 ADD docker-entry.sh . 
 
