@@ -153,7 +153,7 @@
     },
     "ComplianceSettings": {
         "Enable": false,
-        "Directory": "./data/",
+        "Directory": "/mm/mattermost-data",
         "EnableDaily": false
     }
 }
