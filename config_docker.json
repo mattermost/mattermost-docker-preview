@@ -57,7 +57,7 @@
     "FileSettings": {
         "MaxFileSize": 52428800,
         "DriverName": "local",
-        "Directory": "/mm/mattermost/mattermost-data",
+        "Directory": "/mm/mattermost-data",
         "EnablePublicLink": false,
         "PublicLinkSalt": "A705AklYF8MFDOfcwh3I488G8vtLlVip",
         "ThumbnailWidth": 120,
