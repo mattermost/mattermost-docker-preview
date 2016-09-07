@@ -19,9 +19,12 @@ WORKDIR /mm
 # Copy over files
 ADD https://releases.mattermost.com/3.3.0/mattermost-team-3.3.0-linux-amd64.tar.gz .
 RUN tar -zxvf ./mattermost-team-3.3.0-linux-amd64.tar.gz
-ADD config_docker.json ./mattermost/config/config_docker.json
-ADD docker-entry.sh . 
 
+RUN mkdir ./mattermost-config
+VOLUME ./mattermost-config
+ADD config_docker.json ./mattermost-config
+
+ADD docker-entry.sh . 
 RUN chmod +x ./docker-entry.sh
 ENTRYPOINT ./docker-entry.sh
 
