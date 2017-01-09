@@ -23,7 +23,7 @@ WORKDIR /mm
 ADD https://releases.mattermost.com/3.6.0-rc2/mattermost-team-3.6.0-rc2-linux-amd64.tar.gz .
 RUN tar -zxvf ./mattermost-team-3.6.0-rc2-linux-amd64.tar.gz
 ADD config_docker.json ./mattermost/config/config_docker.json
-ADD docker-entry.sh . 
+ADD docker-entry.sh .
 
 RUN chmod +x ./docker-entry.sh
 ENTRYPOINT ./docker-entry.sh
