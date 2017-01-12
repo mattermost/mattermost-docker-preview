@@ -8,9 +8,9 @@ To file issues, [Search for existing bugs and file a GitHub issue if your bug is
 
 ## Usage
 
-Please see [documentation for usage](http://docs.mattermost.com/install/docker-local-machine.html). 
+Please see [documentation for usage](http://docs.mattermost.com/install/docker-local-machine.html).
 
-If you have Docker already set up, you can run this image in one line: 
+If you have Docker already set up, you can run this image in one line:
 
 ```
 docker run --name mattermost-preview -d --publish 8065:8065 mattermost/mattermost-preview
