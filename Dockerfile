@@ -20,8 +20,8 @@ ENV MYSQL_DATABASE=mattermost_test
 WORKDIR /mm
 
 # Copy over files
-ADD https://releases.mattermost.com/4.6.0-rc2/mattermost-team-4.6.0-rc2-linux-amd64.tar.gz .
-RUN tar -zxvf ./mattermost-team-4.6.0-rc2-linux-amd64.tar.gz
+ADD https://releases.mattermost.com/4.6.0-rc3/mattermost-team-4.6.0-rc3-linux-amd64.tar.gz .
+RUN tar -zxvf ./mattermost-team-4.6.0-rc3-linux-amd64.tar.gz
 ADD config_docker.json ./mattermost/config/config_docker.json
 ADD docker-entry.sh .
 
