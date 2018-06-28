@@ -14,6 +14,11 @@ ENV MYSQL_USER=mmuser
 ENV MYSQL_PASSWORD=mostest
 ENV MYSQL_DATABASE=mattermost_test
 
+# Configure Mattermost ENV
+
+ENV mattermost=/mm/mattermost/bin/mattermost
+ENV platform=/mm/mattermost/bin/platform
+
 #
 # Configure Mattermost
 #
