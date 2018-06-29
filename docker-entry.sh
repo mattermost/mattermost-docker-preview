@@ -4,6 +4,7 @@
 
 # Add Mattermost environment variables
 export PATH=${PATH}:/mm/mattermost/bin
+set -e
 
 echo "Starting MySQL"
 /entrypoint.sh mysqld &
