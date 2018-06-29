@@ -16,7 +16,8 @@ ENV MYSQL_DATABASE=mattermost_test
 
 # Configure Mattermost ENV
 
-ENV PATH "$PATH:/mm/mattermost/bin/mattermost:/mm/mattermost/bin/platform"
+ENV PATH /mm/mattermost/bin/mattermost:$PATH
+ENV PATH /mm/mattermost/bin/platform:$PATH
 
 #
 # Configure Mattermost
