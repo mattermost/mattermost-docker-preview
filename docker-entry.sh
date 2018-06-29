@@ -2,9 +2,6 @@
 # Copyright (c) 2016 Mattermost, Inc. All Rights Reserved.
 # See License.txt for license information.
 
-# Add Mattermost environment variables
-export PATH=${PATH}:/mm/mattermost/bin
-
 echo "Starting MySQL"
 /entrypoint.sh mysqld &
 
@@ -16,3 +13,6 @@ done
 echo "Starting platform"
 cd mattermost
 exec ./bin/platform --config=config/config_docker.json
+
+# Add Mattermost environment variables
+export PATH=/mm/mattermost/bin
