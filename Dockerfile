@@ -28,6 +28,9 @@ ADD docker-entry.sh .
 RUN chmod +x ./docker-entry.sh
 ENTRYPOINT ./docker-entry.sh
 
+# Mattermost environment variables
+ENV PATH="/mm/mattermost/bin:${PATH}"
+
 # Create default storage directory
 RUN mkdir ./mattermost-data
 VOLUME ./mattermost-data
