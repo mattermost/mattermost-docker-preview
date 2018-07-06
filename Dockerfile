@@ -17,6 +17,7 @@ ENV MYSQL_DATABASE=mattermost_test
 #
 # Configure Mattermost
 #
+
 WORKDIR /mm
 
 # Copy over files
@@ -28,9 +29,15 @@ ADD docker-entry.sh .
 RUN chmod +x ./docker-entry.sh
 ENTRYPOINT ./docker-entry.sh
 
+# Mattermost environment variables
+ENV PATH="/mm/mattermost/bin:${PATH}"
+
 # Create default storage directory
 RUN mkdir ./mattermost-data
 VOLUME ./mattermost-data
+
+# Add Mattermost environment variables
+CMD export PATH=/mm/mattermost/bin
 
 # Ports
 EXPOSE 8065
