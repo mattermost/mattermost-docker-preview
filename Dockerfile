@@ -1,8 +1,7 @@
-# Copyright (c) 2016 Mattermost, Inc. All Rights Reserved.
+# Copyright (c) 2016-present Mattermost, Inc. All Rights Reserved.
 # See License.txt for license information.
 FROM mysql:5.7
 
-# Install ca-certificates to support TLS of Mattermost v3.5
 RUN apt-get update && apt-get install -y ca-certificates
 
 #
@@ -20,8 +19,8 @@ ENV MYSQL_DATABASE=mattermost_test
 WORKDIR /mm
 
 # Copy over files
-ADD https://releases.mattermost.com/5.0.0-rc1/mattermost-team-5.0.0-rc1-linux-amd64.tar.gz .
-RUN tar -zxvf ./mattermost-team-5.0.0-rc1-linux-amd64.tar.gz
+ADD https://releases.mattermost.com/5.1.0-rc2/mattermost-team-5.1.0-rc2-linux-amd64.tar.gz .
+RUN tar -zxvf ./mattermost-team-5.1.0-rc2-linux-amd64.tar.gz
 ADD config_docker.json ./mattermost/config/config_docker.json
 ADD docker-entry.sh .
 
