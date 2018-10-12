@@ -16,7 +16,7 @@ ENV MYSQL_DATABASE=mattermost_test
 #
 # Configure Mattermost
 #
-WORKDIR /mm
+WORKDIR /mm/mattermost
 
 # Copy over files
 ADD https://releases.mattermost.com/5.4.0-rc2/mattermost-team-5.4.0-rc2-linux-amd64.tar.gz .
