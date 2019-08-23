@@ -32,7 +32,7 @@ ENV PATH="/mm/mattermost/bin:${PATH}"
 
 # Create default storage directory
 RUN mkdir ./mattermost-data
-VOLUME ./mattermost-data
+VOLUME /mm/mattermost-data
 
 # Ports
 EXPOSE 8065
