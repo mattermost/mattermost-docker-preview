@@ -1,0 +1,50 @@
+---
+- hosts: 127.0.0.1
+  vars_files:
+    - group_vars/config.yml
+  connection: local
+
+  tasks:
+    - name: Debug
+      debug:
+        msg: "interpreter: {{ lookup('config', 'INTERPRETER_PYTHON') }}"
+
+    - name: Clone server
+      git:
+        repo: git@github.com:mattermost/mattermost-server.git
+        dest: "{{ path_to_mattermost_server }}"
+        version: master
+        update: yes
+        clone: yes
+
+    - name: Check that config_generated.json exists
+      stat:
+        path: "{{ output_config }}"
+      register: stat_output_config
+
+    - name: Generate config
+      shell: go run config/config_generator/main.go
+      args:
+        chdir: "{{ path_to_mattermost_server }}/"
+      environment:
+        OUTPUT_CONFIG: "{{ output_config }}"
+      when: stat_output_config.stat.exists == False
+
+    - name: Read generated json
+      set_fact:
+        config_generated: "{{ lookup('file', output_config) | from_json }}"
+
+    - set_fact:
+        config_merged: "{{ config_generated | combine(config, recursive=true) }}"
+
+    - debug:
+        msg: "{{ config_merged }}"
+
+    - copy:
+        content: "{{ config_merged | to_nice_json }}"
+        dest: "{{ filepath_config }}"
+
+    - name: Cleanup config_generated.json
+      file:
+        state: absent
+        path: "{{ output_config }}"
