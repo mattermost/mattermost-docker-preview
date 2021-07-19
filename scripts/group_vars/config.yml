@@ -1,0 +1,7 @@
+path_to_mattermost_server: "{{ lookup('env', 'HOME') }}/projects/mattermost/mattermost-server"
+output_config: "{{ lookup('env', 'PWD') }}/config_generated.json"
+filepath_config: "{{ lookup('env', 'PWD') }}/config_docker.json"
+
+config:
+  ServiceSettings:
+    SiteURL: "dummy"
