@@ -2,6 +2,7 @@
 # See License.txt for license information.
 FROM mysql:5.7
 
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 467B942D3A79BD29
 RUN apt-get update && apt-get install -y ca-certificates
 
 #
@@ -19,7 +20,7 @@ ENV MYSQL_DATABASE=mattermost_test
 WORKDIR /mm
 
 # Copy over files
-ADD https://releases.mattermost.com/6.0.0/mattermost-team-6.0.0-linux-amd64.tar.gz .
+ADD https://releases.mattermost.com/6.4.0/mattermost-team-6.4.0-linux-amd64.tar.gz .
 RUN tar -zxvf mattermost-team-*-linux-amd64.tar.gz
 ADD config_docker.json ./mattermost/config/config_docker.json
 ADD docker-entry.sh .
