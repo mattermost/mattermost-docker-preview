@@ -20,7 +20,7 @@ ENV MYSQL_DATABASE=mattermost_test
 WORKDIR /mm
 
 # Copy over files
-ADD https://releases.mattermost.com/7.1.0/mattermost-team-7.1.0-linux-amd64.tar.gz .
+ADD https://releases.mattermost.com/7.1.1/mattermost-team-7.1.1-linux-amd64.tar.gz .
 RUN tar -zxvf mattermost-team-*-linux-amd64.tar.gz
 ADD config_docker.json ./mattermost/config/config_docker.json
 ADD docker-entry.sh .
