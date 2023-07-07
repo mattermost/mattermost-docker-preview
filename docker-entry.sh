@@ -2,11 +2,11 @@
 # Copyright (c) 2016 Mattermost, Inc. All Rights Reserved.
 # See License.txt for license information.
 
-echo "Starting MySQL"
-/entrypoint.sh mysqld &
+echo "Starting PostgreSQL"
+docker-entrypoint.sh -c 'shared_buffers=256MB' -c 'max_connections=200' &
 
-until mysqladmin -hlocalhost -P3306 -u"$MYSQL_USER" -p"$MYSQL_PASSWORD" processlist &> /dev/null; do
-	echo "MySQL still not ready, sleeping"
+until pg_isready -hlocalhost -p 5432 -U "$POSTGRES_USER" &> /dev/null; do
+	echo "postgres still not ready, sleeping"
 	sleep 5
 done
 

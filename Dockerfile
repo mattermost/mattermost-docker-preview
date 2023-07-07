@@ -1,6 +1,6 @@
 # Copyright (c) 2016-present Mattermost, Inc. All Rights Reserved.
 # See License.txt for license information.
-FROM mysql:5.7-debian
+FROM postgres:12
 
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 467B942D3A79BD29
 RUN apt-get update && apt-get install -y ca-certificates
@@ -9,10 +9,9 @@ RUN apt-get update && apt-get install -y ca-certificates
 # Configure SQL
 #
 
-ENV MYSQL_ROOT_PASSWORD=mostest
-ENV MYSQL_USER=mmuser
-ENV MYSQL_PASSWORD=mostest
-ENV MYSQL_DATABASE=mattermost_test
+ENV POSTGRES_USER=mmuser
+ENV POSTGRES_PASSWORD=mostest
+ENV POSTGRES_DB=mattermost_test
 
 #
 # Configure Mattermost
