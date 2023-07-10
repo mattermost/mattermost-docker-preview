@@ -3,7 +3,7 @@
 # See License.txt for license information.
 
 echo "Starting PostgreSQL"
-docker-entrypoint.sh -c 'shared_buffers=256MB' -c 'max_connections=200' &
+docker-entrypoint.sh -c 'shared_buffers=256MB' -c 'max_connections=300' &
 
 until pg_isready -hlocalhost -p 5432 -U "$POSTGRES_USER" &> /dev/null; do
 	echo "postgres still not ready, sleeping"
