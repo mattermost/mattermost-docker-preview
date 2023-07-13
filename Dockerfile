@@ -19,7 +19,7 @@ ENV POSTGRES_DB=mattermost_test
 WORKDIR /mm
 
 # Copy over files
-ADD https://releases.mattermost.com/7.10.3/mattermost-team-7.10.3-linux-amd64.tar.gz .
+ADD https://releases.mattermost.com/7.10.4/mattermost-team-7.10.4-linux-amd64.tar.gz .
 RUN tar -zxvf mattermost-team-*-linux-amd64.tar.gz
 ADD config_docker.json ./mattermost/config/config_docker.json
 ADD docker-entry.sh .
