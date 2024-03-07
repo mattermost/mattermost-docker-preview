@@ -19,7 +19,7 @@ ENV POSTGRES_DB=mattermost_test
 WORKDIR /mm
 
 # Copy over files
-ADD https://releases.mattermost.com/9.5.1/mattermost-team-9.5.1-linux-amd64.tar.gz .
+ADD https://releases.mattermost.com/9.5.2/mattermost-team-9.5.2-linux-amd64.tar.gz .
 RUN tar -zxvf mattermost-team-*-linux-amd64.tar.gz
 ADD config_docker.json ./mattermost/config/config_docker.json
 ADD docker-entry.sh .
